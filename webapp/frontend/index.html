@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroMoney Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>NeuroMoney</h1>
+    </header>
+
+    <main>
+        <!-- Login Form -->
+        <section id="login-section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+                <button type="button" id="go-to-signup">Sign Up</button>
+                <button type="button" id="go-to-faq">FAQ / Help</button>
+                <p id="error-message"></p>
+            </form>
+        </section>
+
+        <!-- Sign Up Form (Initially hidden) -->
+        <section id="signup-section" style="display: none;">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <label for="signup-username">Username:</label>
+                <input type="text" id="signup-username" required>
+
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" required>
+
+                <label for="signup-reenter-password">Re-Enter Password:</label>
+                <input type="password" id="signup-reenter-password" required>
+
+                <label for="signup-age">Age:</label>
+                <select id="signup-age" required>
+                    <!-- JavaScript will populate this with age options -->
+                </select>
+
+                <!-- Country Dropdown -->
+                <label for="signup-country">Select Country:</label>
+                <select id="signup-country" name="Region:">
+                    <option value="United Kingdom" selected>United Kingdom</option>
+                    <option value="USA">United States of America</option>
+                </select>
+
+                <button type="submit">Sign Up</button>
+                <button type="button" id="back-to-login">Back to Login</button>
+                <p id="signup-error-message"></p>
+            </form>
+        </section>
+
+        <!-- Sign Up Form (Initially hidden) -->
+        <section id="edit-profile-section" style="display: none;">
+            <h2>Edit Profile</h2>
+            <form id="edit-profile-form">
+                <label for="edit-username">Username:</label>
+                <input type="text" id="edit-username" value="Username" disabled>
+
+                <label for="edit-old-password">Current Password:</label>
+                <input type="password" id="edit-old-password" required>
+
+                <label for="edit-password">New Password:</label>
+                <input type="password" id="edit-password">
+
+                <label for="edit-reenter-password">Re-Enter New Password:</label>
+                <input type="password" id="edit-reenter-password">
+
+                <label for="edit-age">Age:</label>
+                <select id="edit-age" disabled>
+                    <!-- JavaScript will populate this with age options -->
+                </select>
+
+                <!-- Country Dropdown -->
+                <label for="edit-country">Select Country:</label>
+                <select id="edit-country" name="Region:" required>
+                    <option value="United Kingdom" selected>United Kingdom</option>
+                    <option value="USA">United States of America</option>
+                </select>
+
+                <button type="submit">Update Profile</button>
+                <button type="button" id="back-to-main">Back</button>
+                <p id="edit-error-message"></p>
+            </form>
+        </section>
+
+        <!-- Updated FAQ and Video Container -->
+        <div id="faq-video-container">
+            <form id="faq-form">
+            <!-- FAQ Section -->
+                <section id="faq-section">
+                    <h2>FAQ</h2>
+                    <p>Welcome to the help section. Here are some frequently asked questions:</p>
+                    <ul>
+                        <li><strong>Q:</strong> How do I add a product?<br><strong>A:</strong> Use the 'Add Product' form to input the ASIN and product name.</li>
+                        <li><strong>Q:</strong> How can I delete a product?<br><strong>A:</strong> Click the 'Remove' button on the product listing.</li>
+                        <li><strong>Q:</strong> What is ASIN?<br><strong>A:</strong> It stands for Amazon Standard Identification Number, unique for each product.</li>
+                    </ul>
+                </section>
+
+                <!-- About ADHomeD Section -->
+                <section id="about-vid">
+                    <h2>About NeuroMoney</h2>
+                    <p>Watch the video below to learn more about NeuroMoney!</p>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/iWFnVLRze-o?si=u1beiRkIO6b7v0jc"
+                            title="YouTube video player" allow="accelerometer; autoplay; clipboard-write;
+                            encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                    </iframe>
+                </section>
+
+                <!-- Back to login2 button -->
+                <button type="button" id="back-to-login2" class="styled-button">Back to Login</button>
+            </form>
+        </div>
+
+        <!-- Product Section (Hidden until logged in) -->
+        <section id="product-section" style="display: none;">
+
+                     <!-- Navigation Bar -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" id="shopping-list-link">Shopping</a></li>
+                    <li><a href="#" id="coming-soon-link">Subscriptions</a></li>
+                </ul>
+            </nav>
+
+            <div id="shopping-list">
+                <h2>New Product</h2>
+                <form id="new-product-form">
+                    <div id="dropdown-container">
+                        <!-- Shop Dropdown -->
+                        <label for="shop-select">Retailer:</label>
+                        <select id="shop-select" name="Retailer">
+                        </select>
+                    </div>
+
+                    <label for="new-product-asin">Product ASIN:</label>
+                    <input type="text" id="new-product-asin" required>
+
+                    <label for="new-product-name">Product Name:</label>
+                    <input type="text" id="new-product-name" required>
+
+                    <button type="submit">Add Product</button>
+                    <p id="product-error-message"></p>
+                </form>
+
+                <h2>Products</h2>
+                <!-- Scrollable product list container -->
+                <div id="product-list-container">
+                    <div id="product-list">
+                        <!-- Dynamic content will be injected here -->
+                    </div>
+                </div>
+            </div>
+
+                    <!-- Coming Soon Section (Hidden Initially) -->
+            <section id="coming-soon-section" style="display: none;">
+                <h2>New Subscription</h2>
+                <form id="new-subscription-form">
+                    <label for="sub-name">Subscription Name:</label>
+                    <input type="text" id="sub-name" required>
+
+                    <label for="sub-cost">Cost:</label>
+                    <input type="number" id="sub-cost" step="0.01" required>
+
+                    <label for="sub-date">Next Payment Date:</label>
+                    <input type="date" id="sub-date" required>
+
+                    <label for="sub-type">Subscription Type:</label>
+                    <select id="sub-type">
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+
+                    <button type="submit">Add Subscription</button>
+                    <p id="sub-error-message"></p>
+                </form>
+
+                <h2>Monthly Subscriptions</h2>
+                <div id="monthly-sub-list"></div>
+
+                <h2>Yearly Subscriptions</h2>
+                <div id="yearly-sub-list"></div>
+
+                <h2>Subscription Costs Breakdown</h2>
+
+                <section id="chart-cards-section">
+                    <div class="chart-card">
+                        <div id="infographics-container">
+                            <canvas id="subscriptionDonutChart"></canvas>
+                        </div>
+                        <p id="monthly-total-spend" class="chart-total-spend">Total Monthly Spend:</p>
+                    </div>
+
+                    <div class="chart-card">
+                        <div id="infographics-container-2">
+                            <canvas id="subscriptionDonutChart-2"></canvas>
+                        </div>
+                        <p id="yearly-total-spend" class="chart-total-spend">Total Yearly Spend:</p>
+                    </div>
+
+                </section>
+
+            </section>
+
+            <section id="open-Banking-Page" style="display: none;">
+                <h2>Open Banking</h2>
+                <p>lorem</p>
+
+            </section>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 NeuroMoney</p>
+    </footer>
+
+    <!-- Settings button in the bottom right corner -->
+    <div id="floating-settings" style="display: none;">
+        <button id="settings-button">Settings</button>
+    </div>
+
+    <!-- Settings Panel (Initially hidden) -->
+    <div id="settings-panel" class="hidden">
+        <h3>Settings</h3>
+
+        <button id="edit-profile-button">Edit Profile</button>
+        <button id="toggle-theme">Toggle Dark/Light Mode</button>
+        <button id="close-settings">Close</button>
+        <button id="sign-out">Sign Out</button>
+    </div>
+
+    <!-- Sign Out Confirmation Popup (Initially hidden) -->
+    <div id="signout-popup" class="hidden">
+        <div id="popup-content">
+            <p>Are you sure you want to sign out?</p>
+            <div class="popup-buttons">
+                <button id="cancel-signout">No</button>
+                <button id="confirm-signout">Sign-out</button>
+            </div>
+        </div>
+    </div>
+
+        <!-- Edit Profile Confirmation Popup -->
+    <div id="edit-confirm-popup" class="hidden">
+        <div id="edit-popup-content">
+            <p>Are you sure you want to update your profile? When updating country selection, your product widgets will be cleared.</p>
+            <div class="popup-buttons">
+                <button id="cancel-edit">No</button>
+                <button id="confirm-edit">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+fastapi
+pymysql
+bcrypt
+google-cloud-sql-connector[mysql]
+uvicorn

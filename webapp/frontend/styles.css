@@ -1,0 +1,617 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #000;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+#login-section, #signup-section {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode #login-section,
+body.dark-mode #signup-section {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#login-form, #signup-form, #new-product-form, #new-subscription-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form label, #signup-form label, #new-product-form label, #new-subscription-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px; /* Ensure font size matches other labels */
+    display: block; /* Optional: Ensures labels are block-level elements */
+}
+
+#login-form input, #signup-form input, #new-product-form input, #new-subscription-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+body.dark-mode #login-form input,
+body.dark-mode #signup-form input,
+body.dark-mode #new-product-form input,
+body.dark-mode #new-subscription-form input{
+    background-color: #333;
+    border: 1px solid #555;
+    color: #e0e0e0;
+}
+
+#signup-form select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+body.dark-mode #signup-form select {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #e0e0e0;
+}
+
+#login-form button, #signup-form button, #new-product-form button, #faq-form button, #new-subscription-form button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#login-form button:hover, #signup-form button:hover, #new-product-form button:hover, #faq-form button:hover, #new-subscription-form button:hover {
+    background-color: #555;
+}
+
+#error-message, #signup-error-message, #product-error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+#product-list-container {
+    height: calc(100vh - 300px); /* Adjust height dynamically */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+body.dark-mode #product-list-container {
+    border: 1px solid #555;
+    background-color: #1e1e1e;
+}
+
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.product-widget {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1 1 calc(50% - 10px);  /* Adjusts width to fit two per row */
+    box-sizing: border-box;
+}
+
+body.dark-mode .product-widget {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.product-image {
+    width: 100%;
+    height: 150px;  /* Placeholder size for future product image */
+    background-color: #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 600px) {
+    .product-widget {
+        width: calc(50% - 10px);  /* Ensure two per row */
+    }
+}
+
+@media (min-width: 900px) {
+    .product-widget {
+        width: calc(50% - 10px);  /* Ensure two per row */
+    }
+}
+
+/* Settings Panel */
+#settings-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    transition: right 0.3s ease;
+}
+
+body.dark-mode #settings-panel {
+    background-color: #444;
+}
+
+#settings-panel h3 {
+    margin-top: 0;
+}
+
+#settings-panel button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#settings-panel button:hover {
+    background-color: #777;
+}
+
+#settings-panel.active {
+    right: 0;
+}
+
+#floating-settings {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Sign Out Confirmation Popup */
+#signout-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;  /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+#popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+body.dark-mode #popup-content {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.popup-buttons button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.popup-buttons button:hover {
+    background-color: #555;
+}
+
+.remove-product, .remove-sub {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.remove-product:hover, .remove-sub:hover {
+    background-color: darkred;
+}
+
+/* Container to hold FAQ and video sections side by side */
+#faq-video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* FAQ Section and About Video Section Styling */
+#faq-section, #about-vid {
+    flex: 1 1 45%; /* Each takes 45% of the width on larger screens */
+    max-width: 600px; /* Ensure a maximum width */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+body.dark-mode #faq-section, body.dark-mode #about-vid {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure full width on smaller screens */
+@media (max-width: 768px) {
+    #faq-video-container {
+        flex-direction: column;
+    }
+
+    #faq-section, #about-vid {
+        flex: 1 1 100%; /* Each takes full width */
+        max-width: 100%;
+    }
+}
+
+#faq-section {
+    display: none;
+}
+
+#about-vid{
+    display: none;
+}
+
+#faq-section, #about-vid {
+    margin-bottom: 20px; /* Adjust as needed for spacing */
+}
+
+#back-to-login2 {
+    width: 100%;
+    margin-top: 10px; /* Optional: Add some margin for spacing */
+    padding: 10px; /* Adjust padding for better appearance */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+#country-select, #shop-select, #sub-type {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+body.dark-mode #country-select, body.dark-mode #shop-select, body.dark-mode #sub-type {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #e0e0e0;
+}
+
+body.dark-mode #shop-select {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #e0e0e0;
+}
+
+i used this css /* Navigation Bar Styling */
+#main-nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+#main-nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#main-nav ul li {
+    display: inline;
+}
+
+#main-nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#main-nav ul li a:hover {
+    background-color: #555;
+}
+
+#main-nav ul li a.active {
+    background-color: #555;
+    color: white;
+}
+
+/* Ensure hidden sections stay hidden */
+#shopping-list,
+#coming-soon-section {
+    display: none;
+}
+
+#edit-profile-section {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode #edit-profile-section {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#edit-profile-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#edit-profile-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#edit-profile-form input, #edit-profile-form select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+body.dark-mode #edit-profile-form input,
+body.dark-mode #edit-profile-form select {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #e0e0e0;
+}
+
+#edit-profile-form button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#edit-profile-form button:hover {
+    background-color: #555;
+}
+
+#edit-error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+#edit-confirm-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+#edit-popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.popup-buttons button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.popup-buttons button:hover {
+    background-color: #555;
+}
+
+#new-subscription-form {
+    width: 100%;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+}
+
+body.dark-mode #new-subscription-form {
+}
+
+
+#monthly-sub-list, #yearly-sub-list {
+    height: calc(100vh - 300px); /* Ensuring scrollable behavior */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+body.dark-mode #monthly-sub-list, body.dark-mode #yearly-sub-list {
+    border: 1px solid #555;
+    background-color: #1e1e1e;
+}
+
+.sub-widget {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+body.dark-mode .sub-widget {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+/* Chart container */
+#chart-cards-section {
+    display: flex;
+    flex-direction: column; /* Default: Stacked on top of each other */
+    align-items: center;
+    width: 100%;
+    gap: 20px; /* Space between charts */
+}
+
+/* Individual chart cards */
+.chart-card {
+    width: 90%; /* Adjust width for small screens */
+    max-width: 400px; /* Prevents being too large on mobile */
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.chart-card h2 {
+    font-size: 18px;
+}
+
+/* Ensure the canvas scales dynamically */
+canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px; /* Prevents it from getting too big */
+}
+
+/* Dark mode adjustments */
+body.dark-mode .chart-card {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* When the screen is landscape (width > height), place charts side by side */
+@media (orientation: landscape) and (min-width: 768px) {
+    #chart-cards-section {
+        flex-direction: row; /* Display charts side by side */
+        justify-content: center;
+    }
+
+    .chart-card {
+        width: 45%; /* Give both charts equal space */
+        max-width: 500px; /* Limit width for better spacing */
+    }
+}
+
+/* Scale up charts as the screen gets larger */
+@media (min-width: 1024px) {
+    .chart-card {
+        max-width: 600px; /* Make the charts larger */
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1440px) {
+    .chart-card {
+        max-width: 700px; /* Make charts even larger on wide screens */
+    }
+}
+
+.chart-total-spend {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .chart-total-spend {
+    color: white;
+}
+
