@@ -5,6 +5,6 @@ Fintech Web Application. Built with Python, FastAPI, Javascript, HTML, CSS, SQL,
 ## License © Luke Henderson, 2025
 
 This software is licensed under the **NeuroMoney-Web License v1.1** © Luke Henderson, 2025.  
-Use is permitted only in its unmodified form and subject to the restrictions outlined in the [LICENSE.txt](./LICENSE.txt) file.
+Use is permitted only in its unmodified form and subject to the restrictions outlined in the [LICENSE.md](./LICENSE.md) file.
 
 All rights reserved.
