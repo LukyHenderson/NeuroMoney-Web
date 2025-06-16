@@ -1,24 +1,36 @@
-NeuroMoney-Web License
-Version 1.0
-© Luke Henderson, 2025
+NeuroMoney-Web License  
+Version 1.1  
+© Luke Henderson, 2025. All rights reserved.
 
-1. Grant of License
-You are granted a non-exclusive, non-transferable, and revocable license to use this software for personal and commercial use without modification.
+1. Grant of License  
+You are granted a non-exclusive, non-transferable, and revocable license to use this software for personal or commercial use **in its unmodified, original form**.
 
-2. Restrictions
+2. Restrictions  
 You may NOT:
+- Modify, reverse engineer, decompile, translate, or create derivative works based on this software or any part thereof.
+- Distribute, sublicense, sell, rent, lease, or otherwise make the software available to any third party.
+- Remove, obscure, or alter any copyright, trademark, or proprietary notices contained in or associated with the software.
+- Use the software for any unlawful or harmful purpose.
 
-Modify, reverse engineer, decompile, or create derivative works based on this software.
-Distribute, sublicense, sell, rent, or otherwise share the software.
-Remove or alter any proprietary notices (such as copyright or branding).
-3. Ownership
-This software is proprietary and remains the property of [Your Name or Company]. No ownership or intellectual property rights are transferred under this license.
+3. Ownership  
+This software and all associated content (including but not limited to source code, assets, and branding) are the sole property of **Luke Henderson / NeuroMoney**.  
+No ownership rights or intellectual property are transferred under this license.
 
-4. Affiliate Marketing and Monetization
-This software may contain affiliate links, ads, or monetization mechanisms. You agree that modifying, bypassing, or removing these monetization features is a violation of this license.
+4. Third-Party Services and APIs  
+This software may integrate with third-party services or APIs. Your use of those services is subject to their respective terms of service.  
+NeuroMoney assumes no responsibility for external services or their data accuracy, availability, or performance.
 
-5. Disclaimer of Warranty
-This software is provided "as is" without warranties of any kind, either express or implied. The author is not responsible for any damages resulting from the use of this software.
+5. Affiliate Marketing and Monetization  
+This software may include affiliate links, advertisements, or other forms of monetization.  
+Any attempt to modify, disable, bypass, or remove these mechanisms is strictly prohibited and constitutes a violation of this license.
 
-6. Termination
-This license is valid until terminated. If you violate any terms, your rights under this license will be revoked automatically, and you must stop using the software immediately.
+6. Disclaimer of Warranty  
+This software is provided "as is," without warranty of any kind — express or implied — including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.  
+You use this software at your own risk.
+
+7. Termination  
+This license will terminate automatically if you fail to comply with any of its terms. Upon termination, you must cease all use of the software and destroy all copies in your possession.
+
+8. Governing Law  
+This license shall be governed by and construed in accordance with the laws of the United Kingdom. Any disputes arising under this license shall be subject to the exclusive jurisdiction of UK courts.
+
